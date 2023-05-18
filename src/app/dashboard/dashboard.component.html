@@ -1,9 +1,93 @@
 <app-navbar></app-navbar>
-<main role="main" class="container mt-5">
-  <div class="container">
-    <div class="text-center mt-5">
-      <h3>Dashboard page</h3>
-      <p class="text-bold " >Hi Unnamed user, your Firebase ID is %localID%</p>
-    </div>
-  </div>
-</main>
+<mat-toolbar color="primary">
+    <button mat-mini-fab class="example-icon" aria-label="Example icon-button with menu icon" color="accent">
+<mat-icon>trending_up</mat-icon>
+</button>
+    <span>Sales ForeCaster</span>
+    <span class="example-spacer"></span>
+    <span></span>
+</mat-toolbar>
+
+<div fxLayout="column wrap" fxLayoutAlign="center center">
+    <br>
+    <h1><strong style="font-size:30px;">Welcome! Predict your Future Sales!❤️‍🔥</strong>
+    </h1>
+    <br>
+</div>
+
+
+<div fxLayout="column wrap" fxLayoutAlign="center center">
+
+
+    <form *ngIf="!busy" (ngSubmit)="addDetails(detailForm.value)" [formGroup]="detailForm" method="POST" enctype="multipart/form-data">
+
+        <div fxLayout="row wrap" fxLayoutAlign="center center" fxLayoutGap="50px" fxLayoutGap.xs="0px">
+
+            <mat-card fxFlex="40%" fxFlex.xs="100%" class="myCard" fxLayoutAlign="center center" fxLayout="column wrap">
+
+
+                <mat-card-content>
+
+                    <mat-form-field appearance="outline">
+                        <mat-label>Store ID</mat-label>
+                        <mat-select formControlName="storeID">
+                            <mat-option value="storeID">QLD_CW_ST0203
+                            </mat-option>
+                            <mat-option value="storeID">QLD_CW_ST0204
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline">
+                        <mat-label>Product ID</mat-label>
+                        <mat-select formControlName="productID">
+                            <mat-option value="productID">2667437
+                            </mat-option>
+                            <mat-option value="productID">2667438
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline">
+                        <mat-label>Target</mat-label>
+                        <mat-select formControlName="predictSales">
+                            <mat-option value="predictSales">Predict Sales</mat-option>
+                            <mat-option value="predictSales">Predict</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+
+                    <mat-form-field appearance="outline">
+                        <mat-label>Time Period</mat-label>
+                        <mat-select formControlName="timePeriod">
+                            <mat-option value="Weekly">Weekly</mat-option>
+                            <mat-option value="Monthly">Monthly</mat-option>
+                            <mat-option value="Yearly">Yearly</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+
+                    <mat-form-field appearance="outline">
+                        <mat-label>FileName</mat-label>
+                        <input type="text" matInput class="example-full-width" placeholder="FileName" formControlName="fileName" name="fileName">
+
+                    </mat-form-field>
+
+                    <input type="file" formControlName="cover" name="cover" (change)="handleInput($event)">
+
+
+                    <button mat-raised-button color="primary" type="submit" [disabled]="!detailForm.valid" value="Submit">Submit</button>
+
+
+                </mat-card-content>
+
+            </mat-card>
+        </div>
+    </form>
+</div>
+
+<!--
+
+(change)="getName(name.value) "  (change)="getFile($event) "
+(click)="submitData() "
+                <mat-card-content>-->

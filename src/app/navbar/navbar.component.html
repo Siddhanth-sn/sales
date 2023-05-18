@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+<nav class="navbar navbar-expand-md">
     <a class="navbar-brand" href="javascript:void(0);" routerLink="/">Weather App</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -7,7 +7,7 @@
     <ul class="navbar-nav mr-auto"  >
   
   
-          <ng-container  *ngIf="this.auth.isAuthenticated();then authenticated;else notauthenticated">
+          <ng-container  *ngIf="this.auth.isAuthenticated(); then authenticated; else notauthenticated">
 
           </ng-container>
       
@@ -19,7 +19,7 @@
           
           <ng-template #authenticated>
             <li class="nav-item"><a href="javascript:void(0);" routerLink="/dashboard" class="nav-link" >Dashboard</a></li>
-            <li><a class="nav-link" href="javascript:void(0);"  >Logout</a></li>
+            <li><a class="nav-link" href="javascript:void(0);" (click)="logout()" >Logout</a></li>
           </ng-template>
           
      
